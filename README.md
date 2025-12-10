@@ -1,10 +1,12 @@
-# Titanic Survival Prediction
+# 🚢 Titanic Survival Prediction 
 
 ## Project Overview
-The Titanic Survival Prediction project aims to predict whether a passenger survived or not, using machine learning techniques. The project uses the famous Titanic dataset and implements various algorithms such as Logistic Regression, Random Forest, and K-Nearest Neighbors to train a predictive model. 
+The Titanic Survival Prediction project aims to predict whether a passenger survived or not, using machine learning techniques. The project uses the famous Titanic dataset and implements various algorithms such as Logistic Regression, Random Forest, and Voting Classifier Ensemble to train a predictive model. 
+Random Forest Classifier: For capturing complex non-linear relationships
+Logistic Regression: For interpretable linear decision boundaries
+Voting Classifier Ensemble: Combines both models for improved accuracy and robustness
 
-This project is designed to showcase end-to-end data processing, model training, and deployment using **Streamlit** for interactive web applications.
-
+🎨 Web Application
 ## Objective
 - Predict Titanic passenger survival based on features like age, sex, class, and more.
 - Implement multiple machine learning algorithms.
@@ -22,3 +24,4 @@ This project is designed to showcase end-to-end data processing, model training,
 - seaborn, matplotlib
 
 To install the required dependencies, run:
+

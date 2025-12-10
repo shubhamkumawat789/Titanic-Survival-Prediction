@@ -67,29 +67,30 @@ The model performs well with:
 ```
 Titanic-Survival-Prediction/
 │
-├── app/ # Main application directory
-│ ├── main.py # Streamlit application entry point
-│ └── background_image.py # Background image handling utility
+├── app/                      # Main application directory
+│ ├── main.py                 # Streamlit application entry point
+│ └── background_image.py     # Background image handling utility
 │
-├── data/ # Dataset directory
-│ ├── titanic_dataset.csv # Complete Titanic dataset
+├── data/                     # Dataset directory
+│ ├── titanic_dataset.csv     # Complete Titanic dataset
 │ └── titanic_sample_data.csv # Sample data for testing
 │
-├── models/ # Trained ML models
-│ ├── model_rf.pkl # Random Forest model
-│ ├── model_lr.pkl # Logistic Regression model
-│ └── model_voting.pkl # Voting Classifier model
+├── models/                   # Trained ML models
+│ ├── model_rf.pkl            # Random Forest model
+│ ├── model_lr.pkl            # Logistic Regression model
+│ └── model_voting.pkl        # Voting Classifier model
 │
-├── notebooks/ # Jupyter notebooks for EDA & modeling
+├── notebooks/                # Jupyter notebooks for EDA & modeling
 │ └── Titanic Survival Prediction.ipynb
 │
-├── Dockerfile # Docker configuration for containerization
-├── Procfile # Deployment configuration for Heroku/Railway
-├── requirements.txt # Python dependencies
-├── README.md # Project documentation
-└── LICENSE # License file
+├── Dockerfile                # Docker configuration for containerization
+├── Procfile                  # Deployment configuration for Heroku/Railway
+├── requirements.txt          # Python dependencies
+├── README.md                 # Project documentation
+└── LICENSE                   # License file
 
 ```
+
 
 
 

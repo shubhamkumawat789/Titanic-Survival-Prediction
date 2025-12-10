@@ -65,31 +65,31 @@ The model performs well with:
 
 # 📂 Project Structure
 ```
-House-Price-Prediction-Project/
+Titanic-Survival-Prediction/
 │
-├── app/
-│   └── app.py
+├── app/ # Main application directory
+│ ├── main.py # Streamlit application entry point
+│ └── background_image.py # Background image handling utility
 │
-├── models/
-│   └── house_price_pipe.pkl
+├── data/ # Dataset directory
+│ ├── titanic_dataset.csv # Complete Titanic dataset
+│ └── titanic_sample_data.csv # Sample data for testing
 │
-├── data/
-│   ├── HousePricePrediction.xlsx
-│   └── feature_importance.csv
+├── models/ # Trained ML models
+│ ├── model_rf.pkl # Random Forest model
+│ ├── model_lr.pkl # Logistic Regression model
+│ └── model_voting.pkl # Voting Classifier model
 │
-├── notebooks/
-│   └── House Price Prediction using Machine Learning.ipynb
+├── notebooks/ # Jupyter notebooks for EDA & modeling
+│ └── Titanic Survival Prediction.ipynb
 │
-├── docker/
-│   └── Dockerfile
-│
-├── docs/
-│   └── README.md
-│
-├── requirements.txt
-├── LICENSE
-└── .gitattributes
+├── Dockerfile # Docker configuration for containerization
+├── Procfile # Deployment configuration for Heroku/Railway
+├── requirements.txt # Python dependencies
+├── README.md # Project documentation
+└── LICENSE # License file
 
 ```
+
 
 

@@ -30,7 +30,7 @@ The Titanic dataset contains information about 891 passengers on board the RMS T
 
 
 
-#Process Breakdown
+# Process Breakdown
 ## Step 1: Data Loading
 
 The Titanic dataset is loaded using Seaborn's built-in sns.load_dataset('titanic'). The dataset contains multiple features like:
@@ -156,6 +156,7 @@ Titanic-Survival-Prediction/
 └── LICENSE                   # License file
 
 ```
+
 
 
 

@@ -53,14 +53,6 @@ Handling Missing Values: The SimpleImputer is used to handle missing values.
 One-Hot Encoding: Categorical variables like sex, pclass, and embarked are one-hot encoded using OneHotEncoder, which turns each category into binary columns. This is necessary because models can’t work directly with categorical text values.
 
 Scaling Numerical Features: Numerical features (age, sibsp, fare, etc.) are scaled using StandardScaler to standardize their range.
-- HouseAge – current year minus year built
-- YearsSinceRemod – years since last remodeling
-- TotalLivingArea – total usable basement space
-- BsmtFinRatio – percentage of basement that is finished
-- IsRemodeled – 1 if renovated, otherwise 0
-- LotAreaCategory – buckets: Small / Medium / Large / XL
-
-These engineered features help the model capture patterns that raw features alone cannot.
 
 ## Step 3: ⚙️ Model Training
 
@@ -156,6 +148,7 @@ Titanic-Survival-Prediction/
 └── LICENSE                   # License file
 
 ```
+
 
 
 

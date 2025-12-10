@@ -29,10 +29,30 @@ The Titanic dataset contains information about 891 passengers on board the RMS T
 | alone         | bool          | Whether passenger was traveling alone (True/False)                          |
 
 
-# 🧠 Feature Engineering
 
-To improve model performance, several new features were created:
+#Process Breakdown
+## Step 1: Data Loading
 
+The Titanic dataset is loaded using Seaborn's built-in sns.load_dataset('titanic'). The dataset contains multiple features like:
+
+- pclass (Passenger class)
+- sex (Gender)
+- age (Age of passenger)
+- sibsp (Number of siblings/spouses aboard)
+- parch (Number of parents/children aboard)
+- fare (Ticket fare)
+- embarked (Port of embarkation)
+- Other derived features such as class, who, adult_male, and alone.
+
+## Step 2: Data Preprocessing
+
+Handling Missing Values: The SimpleImputer is used to handle missing values.
+- Numerical features (age, fare, etc.) are imputed with the median value.
+- Categorical features (sex, embarked, etc.) are imputed with the most frequent value.
+
+One-Hot Encoding: Categorical variables like sex, pclass, and embarked are one-hot encoded using OneHotEncoder, which turns each category into binary columns. This is necessary because models can’t work directly with categorical text values.
+
+Scaling Numerical Features: Numerical features (age, sibsp, fare, etc.) are scaled using StandardScaler to standardize their range.
 - HouseAge – current year minus year built
 - YearsSinceRemod – years since last remodeling
 - TotalLivingArea – total usable basement space
@@ -42,26 +62,72 @@ To improve model performance, several new features were created:
 
 These engineered features help the model capture patterns that raw features alone cannot.
 
-# ⚙️ Model Training
+## Step 3: ⚙️ Model Training
 
-The project uses a RandomForestRegressor inside a full preprocessing pipeline.
-Key steps:
-- One-hot encoding for categorical features
-- Scaling for numerical features
-- Train-test split
-- 5-fold cross-validation
-- Hyperparameter tuning using RandomizedSearchCV
-- Final training on full dataset
-  
-The trained pipeline is saved as:
-house_price_pipe.pkl
+We train three models for prediction:
 
-# 📈 Model Results
+- Random Forest Classifier: An ensemble method that works well for classification tasks.
+- Logistic Regression: A simple linear model.
+- Voting Classifier: A combination of Random Forest and Logistic Regression that takes the majority vote from both models.
 
-The model performs well with:
-- Low MAPE (Mean Absolute Percentage Error)
-- Strong R² score
-- Meaningful feature importance rankings
+The models are trained using the training data (X_train, y_train), and the hyperparameters for the Random Forest model are tuned using GridSearchCV.
+
+## Step 4: Model Evaluation
+
+After training the models, we evaluate them using:
+
+- Classification Report: Shows metrics like precision, recall, and F1-score.
+- Confusion Matrix: A matrix that shows the true vs predicted values, helping to evaluate the classification performance visually.
+- Feature Importance: We extract and visualize the most important features that contribute to predicting survival.
+
+## Step 5: Model Saving
+
+The trained models are saved using Pickle:
+
+_ Random Forest Model: model_rf.pkl
+- Logistic Regression Model: model_lr.pkl
+- Voting Classifier Model: model_voting.pkl
+
+This allows you to load and use the models in future predictions without retraining.
+
+## Step 6: Deployment
+
+The trained models are deployed using Streamlit, allowing users to input values for features like sex, age, sibsp, fare, and get predictions on whether the passenger survived or not.
+
+To deploy:
+
+- We first train the models and save them.
+- We then create a Streamlit app (main.py) where users can input passenger data and get real-time survival predictions.
+
+## Step 7: Visualization
+
+- The confusion matrix is plotted using Seaborn to visualize the model’s performance.
+- Feature Importance for both Random Forest and Logistic Regression models is visualized as bar charts.
+
+## Step 8: Saving and Loading Models for Prediction
+
+- After training, the models are saved in the models/ directory as .pkl files.
+- During prediction, these models are loaded into the Streamlit app to provide real-time predictions based on user input.
+- Testing the App
+
+Once deployed, the app allows users to input the following features:
+
+- Sex (male/female)
+- Pclass (1st, 2nd, 3rd class)
+- Age (numeric value)
+- Siblings/Spouses aboard (numeric value)
+- Parents/Children aboard (numeric value)
+- Fare (numeric value)
+- Embarked (C, Q, S)
+
+Upon entering the values, it will predict whether the passenger survived based on the model.
+
+## Saving the Models
+Each trained model is saved into the models directory as a Pickle file (.pkl). This allows easy model retrieval for prediction during deployment.
+
+- Logistic Regression Model: model_lr.pkl
+- Random Forest Model: model_rf.pkl
+- Voting Classifier Model: model_voting.pkl
 
 # 📂 Project Structure
 ```
@@ -90,6 +156,7 @@ Titanic-Survival-Prediction/
 └── LICENSE                   # License file
 
 ```
+
 
 
 
